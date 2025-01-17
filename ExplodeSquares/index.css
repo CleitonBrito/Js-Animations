@@ -1,0 +1,113 @@
+:root {
+    --angle: 0deg;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #150530;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.square {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 70px;
+    background-color: #000000;
+    border-radius: 1em;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+span {
+    color: white;
+    font-size: 1.2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+#transiction {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: -100;
+}
+
+.items {
+    opacity: 0;
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    transition: all 2s;
+    z-index: -1;
+}
+
+.in {
+    opacity: 1;
+    animation: opacity 1s infinite;
+}
+
+.square::after,
+.square::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    translate: -50% -50%;
+    top: 50%;
+    left: 50%;
+    padding: 3px;
+    z-index: -1;
+    animation: spin 5s linear infinite;
+    border-radius: 1em;
+    background-image: conic-gradient(from var(--angle), transparent 50%, blue);
+}
+
+.square-into {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background-color: white;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+@keyframes opacity {
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+}
+
