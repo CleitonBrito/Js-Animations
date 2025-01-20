@@ -49,3 +49,7 @@ const show = (event) => {
 container.addEventListener('mousemove', (event) => {
     show(event);
 });
+
+window.addEventListener('load', (event) => {
+    show(event);
+});

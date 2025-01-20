@@ -81,15 +81,6 @@ span {
     background-image: conic-gradient(from var(--angle), transparent 50%, blue);
 }
 
-.square-into {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: calc(50% - 50px);
-    top: calc(50% - 50px);
-    background-color: white;
-}
-
 @keyframes spin {
     from {
         --angle: 0deg;
